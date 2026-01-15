@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Stream Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background:#000;color:white;font-family:sans-serif">
+
+<h2>🎬 Streaming Demo</h2>
+<p id="title">Loading...</p>
+
+<video id="player" controls width="100%" autoplay>
+  <source src="" type="video/mp4">
+</video>
+
+<script>
+fetch("https://YOUR_FIREBASE_OR_SUPABASE_API")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("title").innerText = data.title;
+    document.getElementById("player").src = data.video_url;
+  });
+</script>
+
+</body>
+</html>
